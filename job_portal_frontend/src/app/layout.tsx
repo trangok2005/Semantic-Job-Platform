@@ -4,6 +4,7 @@ import { AuthProvider } from "@/lib/auth-provider";
 import { JDImportProvider } from "@/features/employer/jd-import-provider";
 import { CandidateResumeImportProvider } from "@/features/candidates/candidate-resume-import-provider";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <JDImportProvider>
             <CandidateResumeImportProvider>
               {children}
+              <Analytics/>
             </CandidateResumeImportProvider>
           </JDImportProvider>
         </AuthProvider>
